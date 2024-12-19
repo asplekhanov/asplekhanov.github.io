@@ -6,7 +6,7 @@ image: ""
 tags: ["bitrix", "скрипт", "nulled"]
 category: Скрипты
 draft: false
-files: ["files/trial.zip"]
+files: ["/upload/scripts/2024-02-17/trial.php"]
 ---
 
 ## Инструкция по активации:
