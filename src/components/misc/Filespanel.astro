@@ -1,0 +1,67 @@
+---
+import { formatDateToYYYYMMDD } from '../../utils/date-utils'
+import { Icon } from 'astro-icon/components'
+import { i18n } from '../../i18n/translation'
+import I18nKey from '../../i18n/i18nKey'
+
+interface Props {
+  pubDate: Date
+  class: string
+  files: string[]
+  countFiles: number
+}
+
+const { files, countFiles, pubDate } = Astro.props
+const className = Astro.props.class
+
+async function fetchSize(url: string) {
+	try {
+		const response = await fetch(url);
+		const data = await response.headers
+        const size = data.get('content-length')
+        let mb_size = (Number(size)/1024)/1024
+
+        return mb_size.toFixed(3) + ' МБ'
+	} catch (error) {
+		console.error('Error:', error);
+	}
+}
+
+function getName(url: string, who: string) {
+    const filename = url.split('/').pop()
+    let servername = url.split('/').shift()
+    let name
+
+    if (servername == 'https:' || servername == 'http:') {
+        servername = new URL(url).hostname
+    }
+
+    if (who == 'file') name = filename
+    if (who == 'server') name = servername
+
+    return name
+}
+
+---
+
+<div>
+    <p class="leading-normal text-xl text-black/75 dark:text-white/75 ms-3 mb-1">{i18n(I18nKey.files)} 
+        <span class="inline-flex items-center rounded-md bg-[var(--license-block-bg)] px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">{countFiles}</span>
+    </p>
+    <div class=`rounded-xl divide-y dark:divide-black/95 bg-[var(--license-block-bg)] mb-5 ${className}`>
+    {files.map(file => (
+        <div class="text-black/75 dark:text-white/75 py-3 hover:bg-[var(--license-block-bg)] dark:hover:bg-white/10 first:rounded-t-xl last:rounded-b-xl">
+            <div class="flex sm:flex-row flex-col ps-5">
+                <div class="flex">
+                    <Icon name="material-symbols:download-rounded" class="text-xl me-2"></Icon>
+                    <a href={file} class="link underline decoration-dashed decoration-from-font underline-offset-4 hover:no-underline text-[var(--primary)] whitespace-nowrap" download>{getName(file, 'file')}</a>
+                </div>
+                <div class="grow"></div>
+                <div class="flex pe-5">
+                    <span class="sm:text-right">{fetchSize(file)}</span>
+                </div>
+            </div>
+        </div>
+    ))}
+    </div>
+</div>

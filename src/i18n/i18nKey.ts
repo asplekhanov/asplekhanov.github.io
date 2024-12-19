@@ -13,6 +13,8 @@ enum I18nKey {
   postsInCategoriy = 'postsInCategoriy',
   recentPosts = 'recentPosts',
 
+  files = 'files',
+
   comments = 'comments',
 
   untitled = 'untitled',
