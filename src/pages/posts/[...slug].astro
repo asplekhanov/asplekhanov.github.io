@@ -13,6 +13,7 @@ import PostMetadata from '../../components/PostMeta.astro'
 import ImageWrapper from '../../components/misc/ImageWrapper.astro'
 import { profileConfig, siteConfig } from '../../config'
 import { formatDateToYYYYMMDD } from '../../utils/date-utils'
+import Filespanel from '@components/misc/Filespanel.astro'
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('posts', ({ data }) => {
@@ -44,6 +45,15 @@ const jsonLd = {
   inLanguage: (entry.data.lang ? entry.data.lang.replace('_', '-') : siteConfig.lang.replace('_', '-')),
   // TODO include cover image here
 }
+
+let isFiles = false
+let countFiles: number = 0
+
+entry.data.files.forEach((file) => {
+    countFiles += 1
+    isFiles = true
+})
+
 ---
 <MainGridLayout banner={entry.data.image} title={entry.data.title} description={entry.data.description} lang={entry.data.lang} setOGTypeArticle={true} headings={headings}>
     <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)}></script>
@@ -103,6 +113,14 @@ const jsonLd = {
             <Markdown class="mb-6 markdown-content onload-animation">
                 <Content />
             </Markdown>
+
+            {isFiles && 
+                <Filespanel 
+                    pubDate={entry.data.published} 
+                    files={entry.data.files} 
+                    countFiles={countFiles}
+                    class="mb-6 rounded-xl license-container onload-animation"></Filespanel>
+            }
 
             {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
 

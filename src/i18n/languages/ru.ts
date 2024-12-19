@@ -16,6 +16,8 @@ export const ru: Translation = {
   [Key.postsInCategoriy]: 'Посты в категории',
   [Key.recentPosts]: 'Последние публикации',
 
+  [Key.files]: 'Файлы',
+
   [Key.comments]: 'Комментарии',
 
   [Key.untitled]: 'Без названия',
