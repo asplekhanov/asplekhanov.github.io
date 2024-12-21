@@ -5,7 +5,7 @@ description: "В мире Linux управление запущенными пр
 image: "cover.png"
 tags: ["linux", "systemctl", "systemd", "особенности", "приемущества"]
 category: Linux
-draft: true
+draft: false
 ---
 
 > Источник изображения обложки: [Source](https://avatars.dzeninfra.ru/get-zen_doc/1950904/pub_63be79e7b5595024d7198783_63be7b99ad6c4f059b5a11bd/scale_1200)
