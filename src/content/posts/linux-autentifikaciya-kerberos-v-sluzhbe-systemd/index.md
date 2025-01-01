@@ -24,7 +24,7 @@ draft: false
 Материал подготовлен на базе следующей конфигурации:
 - WEB-сервер: 
     - Astra Linux 1.7.5
-    - dotnet пакет:
+    - dotnet пакет: 6.0
     - ASP.NET ([Kestrel](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/?view=aspnetcore-9.0&tabs=linux#kestrel)) приложение которое подключается к SQL Server
 - SQL Server 2019
 
