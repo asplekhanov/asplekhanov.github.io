@@ -44,7 +44,7 @@ export const navBarConfig: NavBarConfig = {
     LinkPreset.Projects,
     {
       name: 'Dzen',
-      url: 'https://dzen.ru/devmemo',     // Internal links should not include the base path, as it is automatically added
+      url: 'https://dzen.ru/devmemo.ru',     // Internal links should not include the base path, as it is automatically added
       external: true,                               // Show an external link icon and will open in a new tab
     },
     {
@@ -63,7 +63,7 @@ export const profileConfig: ProfileConfig = {
     {
       name: 'Dzen',
       icon: 'fa6-brands:yandex',
-      url: 'https://dzen.ru/devmemo',
+      url: 'https://dzen.ru/devmemo.ru',
     },
     {
       name: 'GitHub',
