@@ -90,7 +90,7 @@ docker-compose up
 :::
 
 ### Таблицы
-![Схема БД Northwind](image-002.png)
+![Схема БД Northwind](image-002.PNG)
 
 Всего в БД Northwind 13 таблиц:
 | Таблица              | Колнки                                                                                                                             | Ключ                                  | Кол-во строк |
@@ -114,14 +114,14 @@ docker-compose up
 ## Этап 2. Создание схемы базы данных в PostgreSQL
 Переведите структуру таблиц из MSSQL в PostgreSQL, учитывая различия в синтаксисе. Адаптируйте индексы, ограничения и связи. Воспользуемся функционалом SSMS и создадим SQL-запрос на создание таблиц БД:
 1. Выберите БД, в контекстном меню выберите `Tasks`->`Generate Scripts...`.
-![Открытие генератора скриптов](image-003.png)
+![Открытие генератора скриптов](image-003.PNG)
 2. Выберите все таблицы (без views и stored).
-![Форма генератора скриптов](image-004.png)
+![Форма генератора скриптов](image-004.PNG)
 3. Далее выбираем пункт "Open in new query window".
-![Форма генератора скриптов](image-005.png)
+![Форма генератора скриптов](image-005.PNG)
 
 В результате получим готовый SQL-запрос на создание структуры БД, останется скорректировать под синтаксис PostgreSQL. Для удобства отладки создаем пустую БД в PostgreSQL, в pgAdmin4 открываем `Query Tool`, вставляем SQL-запрос из SSMS.
-![Query Tool](image-006.png)
+![Query Tool](image-006.PNG)
 
 :::NOTE[SQLines SQL Converter]
 Для конвертации SQL запроса из MSSQL можно воспользовотся [SQLines SQL Converter Online](https://www.sqlines.com/online)
@@ -134,11 +134,11 @@ docker-compose up
 В SSMS выполним следующие действия:
 1. Выберите БД, в контекстном меню выберите `Tasks`->`Export Data...`.
 2. В качестве Data source выбираем `Microsoft OLE DB Provider for SQL Server`. Используем аутентификацию SQL.
-![Форма экспорта - Data source](image-007.png)
+![Форма экспорта - Data source](image-007.PNG)
 3. В качестве Destination выбираем `Microsoft Excel`. Создаем пустой Excel и указываем его в **Excel file path**.
-![Форма экспорта - Destination](image-008.png)
+![Форма экспорта - Destination](image-008.PNG)
 4. Далее выбираем данные для экспорта.
-![Форма экспорта - Таблицы](image-009.png)
+![Форма экспорта - Таблицы](image-009.PNG)
 
 :::NOTE[Важно]
 Если при экспорте возникает ошибка связанная с Long данными, то необходимо игнорировать данные поля и переносить их вручную.
@@ -159,7 +159,7 @@ docker-compose up
 В SSMS выполним следующие действия:
 1. Выберите БД, в контекстном меню выберите `Tasks`->`Export Data...`.
 2. В качестве Data source выбираем `Microsoft OLE DB Provider for SQL Server`. Используем аутентификацию SQL.
-![Форма экспорта - Data source](image-007.png)
+![Форма экспорта - Data source](image-007.PNG)
 3. В качестве Destination выбираем `.Net Framework Data Provider for Odbc`:
     - ConnectionString:
     ```
@@ -167,9 +167,9 @@ docker-compose up
     ```
 4. Выбираем `Copy data from one or more tables or views`.
 5. В левом столбце выбираем таблицу/ы исходной БД, в правом столбце указываем таблицу/ы в целевой БД.
-![Форма экспорта - Select source tables and views](image-010.png)
+![Форма экспорта - Select source tables and views](image-010.PNG)
 6. Запускаем процесс копирования данных, если ранее таблицы и данные в них были подготовлены к переходу в PostgreSQL, то получим сообщения об успешном копировании данных.
-![Форма экспорта - SQL Server import and export wizard](image-011.png)
+![Форма экспорта - SQL Server import and export wizard](image-011.PNG)
 
 ## Заключение
 В целом, миграция базы данных из MS SQL в PostgreSQL с помощью SSMS и других инструментов может быть эффективным способом переноса данных из одной системы управления базами данных в другую. Однако перед началом миграции необходимо тщательно спланировать процесс и выбрать наиболее подходящие инструменты для конкретной ситуации.
