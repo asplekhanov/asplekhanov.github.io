@@ -150,6 +150,9 @@ const bannerOffset =
 		<link rel="alternate" type="application/rss+xml" title={siteConfig.title + ' - ' + siteConfig.subtitle} href={`${Astro.site}rss.xml`}/>
 		
 		<meta name="zen-verification" content="uBZN6GUR15GuPNZu1BQR4SQqNcBnWom3u05RzvVH2Ku1VkEJtETTxDcwX2VkcbNw" />
+		<!-- Yandex.RTB -->
+		<script>window.yaContextCb=window.yaContextCb||[]</script>
+		<script src="https://yandex.ru/ads/system/context.js" async></script>
 	</head>
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize
