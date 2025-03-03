@@ -149,6 +149,40 @@ entry.data.files.forEach((file) => {
         </a>
     </div>
 
+    <ya-units-slider>
+    <div class="unit">
+        <ya-unit-kebab />
+        <div class="image">
+            <ya-unit-media ratio="0.667" />
+        </div>
+        <div class="body">
+            <ya-clamp class="title" lines="4">
+                <ya-unit-title />
+            </ya-clamp>
+            <ya-clamp class="description" lines="1">
+                <ya-unit-desc />
+            </ya-clamp>
+            <div class="meta">
+                <ya-unit-category class="meta-span category" />
+                <ya-unit-date class="meta-span date" />
+            </div>
+            <div class="domain-block">
+                <ya-unit-domain class="domain" />
+                <span class="favicon">
+                    <ya-unit-favicon size="16" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <ya-slider-button direction="left">
+        <div class="button button-left"></div>
+    </ya-slider-button>
+    <ya-slider-button direction="right">
+        <div class="button button-right"></div>
+    </ya-slider-button>
+    </ya-units-slider>
+    <ya-recommendation-label />
+
     <div id="comments-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ", {} ]}>
     <script src="https://giscus.app/client.js"
         data-repo="asplekhanov/asplekhanov.github.io"
